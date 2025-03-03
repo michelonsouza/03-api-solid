@@ -1,0 +1,46 @@
+{
+  "name": "03-api-solid",
+  "version": "1.0.0",
+  "description": "GymPass style app.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup",
+    "lint": "eslint . --max-warnings 0 --config eslint.config.mjs",
+    "lint:cache": "npm run lint -- --cache --fix",
+    "pretty": "prettier . --write --cache --cache-location=./.prettiercache",
+    "precommit": "lint-staged",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.9",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-import-resolver-typescript": "^3.8.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-vitest": "0.5.4",
+    "globals": "16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "8.26.0"
+  },
+  "dependencies": {
+    "dotenv": "16.4.7",
+    "fastify": "^5.2.1",
+    "zod": "3.24.2"
+  }
+}
