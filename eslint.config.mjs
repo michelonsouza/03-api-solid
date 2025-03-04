@@ -56,6 +56,7 @@ export default tseslint.config({
           'setup.ts',
           'eslint.config.mjs',
           'tsup.config.ts',
+          'vitest.config.ts',
         ],
         optionalDependencies: [
           '**/*.test.ts',
@@ -64,6 +65,7 @@ export default tseslint.config({
           'setup.ts',
           'eslint.config.mjs',
           'tsup.config.ts',
+          'vitest.config.ts',
         ],
         peerDependencies: [
           '**/*.test.ts',
@@ -72,6 +74,7 @@ export default tseslint.config({
           'setup.ts',
           'eslint.config.mjs',
           'tsup.config.ts',
+          'vitest.config.ts',
         ],
       },
     ],
