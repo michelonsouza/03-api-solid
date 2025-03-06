@@ -8,14 +8,15 @@ import { UserAlreadyExistsError } from './errors/user-already-exists';
 import { RegisterUseCase } from './register';
 
 let usersRepository: UsersRepository;
+let sut: RegisterUseCase;
 
 describe('Register use case', () => {
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
+    sut = new RegisterUseCase(usersRepository);
   });
 
   it('should be able to register', async () => {
-    const sut = new RegisterUseCase(usersRepository);
     const userInput = {
       name: faker.person.fullName(),
       email: faker.internet.email(),
@@ -37,7 +38,6 @@ describe('Register use case', () => {
   });
 
   it('should hash user password upon registration', async () => {
-    const sut = new RegisterUseCase(usersRepository);
     const userInput = {
       name: faker.person.fullName(),
       email: faker.internet.email(),
@@ -57,7 +57,6 @@ describe('Register use case', () => {
   });
 
   it('should not be able to register with same email twice', async () => {
-    const sut = new RegisterUseCase(usersRepository);
     const userInput = {
       name: faker.person.fullName(),
       email: faker.internet.email(),

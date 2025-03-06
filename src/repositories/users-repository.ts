@@ -13,6 +13,7 @@ export interface User {
 }
 
 export interface UsersRepository {
+  findById(id: string): Promise<User | null>;
   create(data: UserCreateInput): Promise<User>;
   findByEmail(email: string): Promise<User | null>;
 }

@@ -38,6 +38,7 @@ export default tseslint.config({
     ...prettierConfig.rules,
     ...vitestPlugin.configs.recommended.rules,
     'prettier/prettier': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
