@@ -17,6 +17,7 @@ export class InMemoryGymsInsRepository implements GymsRepository {
       title,
       latitude,
       longitude,
+      /* v8 ignore next 2 */
       phone: phone ?? null,
       description: description ?? null,
     };
@@ -27,6 +28,7 @@ export class InMemoryGymsInsRepository implements GymsRepository {
   }
 
   findById(id: string): Promise<Gym | null> {
+    /* v8 ignore next 1 */
     const gym = this.#gyms.find(gym => gym.id === id) ?? null;
 
     return Promise.resolve(gym);

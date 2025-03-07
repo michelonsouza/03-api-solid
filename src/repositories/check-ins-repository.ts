@@ -2,6 +2,7 @@ export interface CheckInCreateInput {
   userId: string;
   gymId: string;
   validatedAt?: Date | string | null;
+  createdAt?: Date | string;
 }
 
 export interface CheckIn {
@@ -14,5 +15,7 @@ export interface CheckIn {
 
 export interface CheckInsRepository {
   create(data: CheckInCreateInput): Promise<CheckIn>;
+  countByUserId(userId: string): Promise<number>;
+  findManyByUserId(userId: string, page?: number): Promise<CheckIn[]>;
   findByUserIdOnDate(userId: string, date: Date): Promise<CheckIn | null>;
 }

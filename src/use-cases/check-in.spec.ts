@@ -9,6 +9,7 @@ import { InMemoryGymsInsRepository } from '@/repositories/in-memory/in-memory-gy
 import { CheckInsUseCase } from './check-in';
 import { MaxDistanceError } from './errors/max-distance-error';
 import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error';
+import { ResourceNotFoundError } from './errors/resource-not-found';
 
 interface CheckInMockedDataType {
   userId: string;
@@ -73,6 +74,19 @@ describe('Check In use case', () => {
     const { data: checkIn } = await sut.execute(data);
 
     expect(checkIn.id).toEqual(expect.any(String));
+  });
+
+  it('should not be able to check in when gym not exists', async () => {
+    const data = {
+      ...mockedData,
+      gymId: faker.string.uuid(),
+      userLatitude: faker.location.latitude(),
+      userLongitude: faker.location.longitude(),
+    };
+
+    await expect(sut.execute(data)).rejects.toBeInstanceOf(
+      ResourceNotFoundError,
+    );
   });
 
   it('should not be able to check in twice in the same day', async () => {
