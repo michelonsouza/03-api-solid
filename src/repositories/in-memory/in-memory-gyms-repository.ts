@@ -43,7 +43,7 @@ export class InMemoryGymsInsRepository implements GymsRepository {
     return Promise.resolve(gym);
   }
 
-  searchMany(query: string, page: number): Promise<Gym[]> {
+  searchMany(query: string, page: number = 1): Promise<Gym[]> {
     const gyms = this.#gyms
       .filter(gym => gym.title.toLowerCase().includes(query.toLowerCase()))
       .slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
