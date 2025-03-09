@@ -6,7 +6,7 @@ import { GymsRepository } from '@/repositories/gyms-repository';
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository';
 import { InMemoryGymsInsRepository } from '@/repositories/in-memory/in-memory-gyms-repository';
 
-import { FetchmemberCheckInsHystoryUseCase } from './fetch-user-check-ins-history';
+import { FetchUserCheckInsHystoryUseCase } from './fetch-user-check-ins-history';
 
 interface CheckInMockedDataType {
   userId: string;
@@ -26,7 +26,7 @@ interface GymMockeddataType {
 
 let checkInsRepository: CheckInsRepository;
 let gymsRepository: GymsRepository;
-let sut: FetchmemberCheckInsHystoryUseCase;
+let sut: FetchUserCheckInsHystoryUseCase;
 let mockedData: CheckInMockedDataType;
 let gymMockedData: GymMockeddataType;
 
@@ -52,7 +52,7 @@ describe('Fetch User Check-Ins use case', () => {
   beforeEach(() => {
     checkInsRepository = new InMemoryCheckInsRepository();
     gymsRepository = new InMemoryGymsInsRepository();
-    sut = new FetchmemberCheckInsHystoryUseCase(checkInsRepository);
+    sut = new FetchUserCheckInsHystoryUseCase(checkInsRepository);
 
     gymMockedData = {
       title: faker.company.name(),

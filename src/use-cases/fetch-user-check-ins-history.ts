@@ -3,16 +3,16 @@ import {
   CheckInsRepository,
 } from '@/repositories/check-ins-repository';
 
-interface FetchmemberCheckInsHystoryUseCaseParams {
+interface FetchUserCheckInsHystoryUseCaseParams {
   userId: string;
   page?: number;
 }
 
-interface FetchmemberCheckInsHystoryUseCaseResponse {
+interface FetchUserCheckInsHystoryUseCaseResponse {
   data: CheckIn[];
 }
 
-export class FetchmemberCheckInsHystoryUseCase {
+export class FetchUserCheckInsHystoryUseCase {
   #checkInsRepository: CheckInsRepository;
 
   constructor(checkInsRepository: CheckInsRepository) {
@@ -22,7 +22,7 @@ export class FetchmemberCheckInsHystoryUseCase {
   async execute({
     userId,
     page = 1,
-  }: FetchmemberCheckInsHystoryUseCaseParams): Promise<FetchmemberCheckInsHystoryUseCaseResponse> {
+  }: FetchUserCheckInsHystoryUseCaseParams): Promise<FetchUserCheckInsHystoryUseCaseResponse> {
     const checkIns = await this.#checkInsRepository.findManyByUserId(
       userId,
       page,

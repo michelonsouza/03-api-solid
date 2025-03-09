@@ -3,7 +3,7 @@ import { fakerPT_BR as faker } from '@faker-js/faker';
 import { GymsRepository } from '@/repositories/gyms-repository';
 import { InMemoryGymsInsRepository } from '@/repositories/in-memory/in-memory-gyms-repository';
 
-import { FetchNearbyUseCase } from './fetch-nearby-gyms';
+import { FetchNearbyGymsUseCase } from './fetch-nearby-gyms';
 
 interface CreateGymMockedDataType {
   title: string;
@@ -18,7 +18,7 @@ interface LocationParamType {
   longitude: number;
 }
 
-let sut: FetchNearbyUseCase;
+let sut: FetchNearbyGymsUseCase;
 let gymsRepository: GymsRepository;
 
 async function makeGyms(
@@ -47,7 +47,7 @@ async function makeGyms(
 describe('Fetch Nearby Gyms use case', () => {
   beforeEach(() => {
     gymsRepository = new InMemoryGymsInsRepository();
-    sut = new FetchNearbyUseCase(gymsRepository);
+    sut = new FetchNearbyGymsUseCase(gymsRepository);
   });
 
   it('should be able to fetch nearby gyms', async () => {

@@ -1,15 +1,15 @@
 import { Gym, GymsRepository } from '@/repositories/gyms-repository';
 
-interface FetchNearbyUseCaseParams {
+interface FetchNearbyGymsUseCaseParams {
   userLatitude: number;
   userLongitude: number;
 }
 
-interface FetchNearbyUseCaseResponse {
+interface FetchNearbyGymsUseCaseResponse {
   data: Gym[];
 }
 
-export class FetchNearbyUseCase {
+export class FetchNearbyGymsUseCase {
   #gymsRepository: GymsRepository;
 
   constructor(gymsRepository: GymsRepository) {
@@ -19,7 +19,7 @@ export class FetchNearbyUseCase {
   async execute({
     userLatitude,
     userLongitude,
-  }: FetchNearbyUseCaseParams): Promise<FetchNearbyUseCaseResponse> {
+  }: FetchNearbyGymsUseCaseParams): Promise<FetchNearbyGymsUseCaseResponse> {
     const gyms = await this.#gymsRepository.findManyNearby({
       latitude: userLatitude,
       longitude: userLongitude,
