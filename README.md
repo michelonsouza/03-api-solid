@@ -20,7 +20,7 @@ GymPass style app.
 - [x] O usuário não deve poder se cadastar com um e-mail duplicado;
 - [x] O usuário não pode fazer dois check-ins no mesmo dia;
 - [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- [ ] O check-in só pode ser validado até 20 minutos após criado;
+- [x] O check-in só pode ser validado até 20 minutos após criado;
 - [ ] O check-in só poode ser validado por administradores;
 - [ ] A academia só pode ser cadastrada por admnistradores;
 
@@ -28,5 +28,5 @@ GymPass style app.
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
-- [ ] Todas as listas de dados precisam estar paginadas com 20 itens por página;
+- [x] Todas as listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário deve identificado por um JWT (JSON Web Token);
