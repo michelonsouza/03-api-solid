@@ -1,6 +1,15 @@
 import { randomUUID } from 'node:crypto';
 
-import { Gym, GymCreateInput, GymsRepository } from '../gyms-repository';
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates';
+
+import {
+  Gym,
+  GymCreateInput,
+  GymsRepository,
+  FindManyNearbyParams,
+} from '../gyms-repository';
+
+const ITEMS_PER_PAGE = 20;
 
 export class InMemoryGymsInsRepository implements GymsRepository {
   #gyms: Gym[] = [];
@@ -32,5 +41,35 @@ export class InMemoryGymsInsRepository implements GymsRepository {
     const gym = this.#gyms.find(gym => gym.id === id) ?? null;
 
     return Promise.resolve(gym);
+  }
+
+  searchMany(query: string, page: number): Promise<Gym[]> {
+    const gyms = this.#gyms
+      .filter(gym => gym.title.toLowerCase().includes(query.toLowerCase()))
+      .slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
+
+    return Promise.resolve(gyms);
+  }
+
+  findManyNearby({
+    latitude,
+    longitude,
+  }: FindManyNearbyParams): Promise<Gym[]> {
+    const gyms = this.#gyms.filter(gym => {
+      const distance = getDistanceBetweenCoordinates(
+        {
+          latitude,
+          longitude,
+        },
+        {
+          latitude: gym.latitude,
+          longitude: gym.longitude,
+        },
+      );
+
+      return distance <= 10; // 10 km
+    });
+
+    return Promise.resolve(gyms);
   }
 }

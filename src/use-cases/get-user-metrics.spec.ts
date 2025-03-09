@@ -48,7 +48,7 @@ async function makeCheckIns(quantity: number, userId?: string) {
   return { gym, userCheckIns };
 }
 
-describe('Fetch User Check-Ins use case', () => {
+describe('Get User Metrics use case', () => {
   beforeEach(() => {
     checkInsRepository = new InMemoryCheckInsRepository();
     gymsRepository = new InMemoryGymsInsRepository();
