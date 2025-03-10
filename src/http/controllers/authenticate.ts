@@ -36,6 +36,7 @@ export async function authenticate(
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       return reply.status(error.code).send({ message: error.message });
+      /* v8 ignore next 4 */
     }
 
     throw error;

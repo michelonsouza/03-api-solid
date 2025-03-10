@@ -58,6 +58,7 @@ export default tseslint.config({
           'eslint.config.mjs',
           'tsup.config.ts',
           'vitest.config.ts',
+          'prisma/vitest-environment-prisma',
         ],
         optionalDependencies: [
           '**/*.test.ts',
@@ -67,6 +68,7 @@ export default tseslint.config({
           'eslint.config.mjs',
           'tsup.config.ts',
           'vitest.config.ts',
+          'prisma/vitest-environment-prisma',
         ],
         peerDependencies: [
           '**/*.test.ts',
@@ -76,6 +78,7 @@ export default tseslint.config({
           'eslint.config.mjs',
           'tsup.config.ts',
           'vitest.config.ts',
+          'prisma/vitest-environment-prisma',
         ],
       },
     ],

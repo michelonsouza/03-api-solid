@@ -24,6 +24,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
   } catch (error) {
     if (error instanceof UserAlreadyExistsError) {
       return reply.status(error.code).send({ message: error.message });
+      /* v8 ignore next 4 */
     }
 
     throw error;

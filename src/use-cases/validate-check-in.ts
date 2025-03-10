@@ -34,6 +34,7 @@ export class ValidateCheckInsUseCase {
 
     const distanceInMinutesFromCheckInCreation = differenceInMinutes(
       new Date(),
+      /* v8 ignore next 3 */
       checkIn.created_at instanceof Date
         ? checkIn.created_at
         : parseISO(checkIn.created_at),

@@ -6,15 +6,32 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
+    workspace: [
+      {
+        extends: true,
+        test: {
+          name: 'e2e',
+          include: ['./src/http/controllers/**/*.spec.ts'],
+          environment: './prisma/setup-tests.ts',
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          environment: 'node',
+          include: ['./src/use-cases/**/*.spec.ts'],
+        },
+      },
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
       exclude: [
         ...coverageConfigDefaults.exclude,
-        'db',
         '.husky',
         'src/env',
-        '__tests__',
+        'prisma/setup-tests.ts',
       ],
     },
   },
