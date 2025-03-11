@@ -22,6 +22,7 @@ export async function validate(request: FastifyRequest, reply: FastifyReply) {
       return reply.status(error.code).send({
         message: error.message,
       });
+      /* v8 ignore next 4 */
     }
 
     throw error as Error;

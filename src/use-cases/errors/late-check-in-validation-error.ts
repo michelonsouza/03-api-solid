@@ -6,6 +6,6 @@ export class LateCheckInValidationErrorError extends Error {
       'The check-in can only be validated until 20 minutes of its creation.',
     );
     this.name = 'LateCheckInValidationErrorError';
-    this.code = 404;
+    this.code = 409;
   }
 }

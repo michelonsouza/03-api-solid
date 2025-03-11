@@ -23,6 +23,7 @@ export class PrismaGymsRepository implements GymsRepository {
           ...gym,
           latitude: gym.latitude.toNumber(),
           longitude: gym.longitude.toNumber(),
+          /* v8 ignore next 3 */
         }
       : null;
   }

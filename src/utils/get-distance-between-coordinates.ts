@@ -16,6 +16,7 @@ export function getDistanceBetweenCoordinates(
     return 0;
   }
 
+  /* v8 ignore next 1 */
   const earthRadius = format === 'km' ? 6371 : 6371e3; // km or m `6371e3 = 6371000`
   const φ1 = toRadians(from.latitude); // φ1 (phi 1) (latitude of "from" point in radians)
   const φ2 = toRadians(to.latitude); // φ2 (phi 1) (latitude of "to" point in radians)

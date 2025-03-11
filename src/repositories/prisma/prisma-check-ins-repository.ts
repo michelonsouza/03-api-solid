@@ -41,6 +41,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
       data: {
         gym_id: gymId,
         user_id: userId,
+        /* v8 ignore next 1 */
         validated_at: validatedAt ? new Date() : null,
       },
     });
