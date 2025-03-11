@@ -1,7 +1,7 @@
-import { fakerPT_BR as faker } from '@faker-js/faker';
 import supertest from 'supertest';
 
 import { app } from '@/app';
+import { createAndAuthenticateUser } from '@/utils/tests/create-and-authenticate-user';
 
 describe('E2E: Profile', () => {
   beforeAll(async () => {
@@ -13,22 +13,7 @@ describe('E2E: Profile', () => {
   });
 
   it('should be able to get user profile', async () => {
-    const email = faker.internet.email();
-    const password = faker.internet.password();
-    const name = faker.person.fullName();
-
-    await supertest(app.server).post('/users').send({
-      email,
-      password,
-      name,
-    });
-
-    const authResponse = await supertest(app.server).post('/sessions').send({
-      email,
-      password,
-    });
-
-    const { token } = authResponse.body;
+    const { token, email, name } = await createAndAuthenticateUser(app);
 
     const profileResponse = await supertest(app.server)
       .get('/me')
