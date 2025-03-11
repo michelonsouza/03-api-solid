@@ -29,7 +29,7 @@
   "dependencies": {
     "@fastify/cookie": "11.0.2",
     "@fastify/jwt": "9.0.4",
-    "@prisma/client": "6.4.1",
+    "@prisma/client": "6.5.0",
     "bcryptjs": "3.0.2",
     "date-fns": "4.1.0",
     "dotenv": "16.4.7",
@@ -56,7 +56,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.3",
-    "prisma": "6.4.1",
+    "prisma": "6.5.0",
     "supertest": "7.0.0",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",

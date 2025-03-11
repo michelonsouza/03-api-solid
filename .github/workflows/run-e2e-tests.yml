@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run unit tests
+      - name: Run e2e tests
         run: yarn test:e2e
         env:
           JWT_SECRET: testing-key
