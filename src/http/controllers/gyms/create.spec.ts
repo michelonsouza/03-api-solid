@@ -14,7 +14,7 @@ describe('E2E: Create Gym', () => {
   });
 
   it('should be able to create a gym', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
     const data = {
       title: faker.company.name(),
       phone: faker.phone.number(),

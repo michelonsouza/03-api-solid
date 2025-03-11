@@ -14,7 +14,7 @@ describe('E2E: Create Check-in', () => {
   });
 
   it('should be able to create a check-in', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
 
     const { gym, latitude, longitude } = await createAndSearchGym(app, token);
 
@@ -32,7 +32,7 @@ describe('E2E: Create Check-in', () => {
   });
 
   it('should not be able to create far from gym', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
 
     const { gym, latitude, longitude } = await createAndSearchGym(app, token);
 
@@ -50,7 +50,7 @@ describe('E2E: Create Check-in', () => {
   });
 
   it('should be able to create a check-in in same day', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
 
     const { gym, latitude, longitude } = await createAndSearchGym(app, token);
 

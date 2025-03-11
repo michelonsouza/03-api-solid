@@ -31,7 +31,7 @@ describe('E2E: Check-in history', () => {
   });
 
   it('should be able to list the history of check-ins', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
 
     const { gym, latitude, longitude } = await createAndSearchGym(app, token);
 

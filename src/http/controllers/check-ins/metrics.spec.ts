@@ -25,7 +25,7 @@ describe('E2E: Check-in metrics', () => {
   });
 
   it('should be able to get check-ins metrics', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
 
     const { gym, latitude, longitude } = await createAndSearchGym(app, token);
 

@@ -5,11 +5,17 @@ import { User, UserCreateInput, UsersRepository } from '../users-repository';
 export class InMemoryUsersRepository implements UsersRepository {
   #users: User[] = [];
 
-  async create({ email, name, password_hash }: UserCreateInput) {
+  async create({
+    email,
+    name,
+    password_hash,
+    role = 'MEMBER',
+  }: UserCreateInput) {
     const user: User = {
       id: randomUUID(),
       name,
       email,
+      role,
       password_hash,
       created_at: new Date().toISOString(),
     };

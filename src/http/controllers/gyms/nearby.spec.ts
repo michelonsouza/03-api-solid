@@ -14,7 +14,7 @@ describe('E2E: Nearby Gyms', () => {
   });
 
   it('should be able to list nearby gyms', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN');
     const latitude = faker.location.latitude({ min: -88, max: 78 });
     const longitude = faker.location.longitude({ min: -178, max: 178 });
     const data = Array(2)
